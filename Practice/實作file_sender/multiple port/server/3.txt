@@ -1,0 +1,43 @@
+					f.write(recBuf)
+						
+					else:
+						print ("%s Finish!" % pack.fname)
+						f.close()
+ame == 'temp':
+					recBuf , addr =  sock.recvfrom(1024)
+					pack.fname = recBuf.decode('utf-8')
+					#f = open(pack.fname, 'wb')
+					print(pack.fname)
+					
+				else:
+					recBuf , addr =  sock.recvfrom(1024)
+					if recBuf:
+						recBuf = recBuf
+						f = open(pack.fname, 'wb')
+						f.write(recBuf)
+						
+					else:
+						print ("%s Finish!" % pack.fname)
+						f.close()file_name = 'temp'
+	packages.append(Package(port+i, file_name, udpSocket))
+
+
+
+
+while True:
+	read_sockets,write_sockets,error_sockets = select.select(CONNECTION_LIST,[],[])
+	for sock in read_sockets:
+		for pack in packages:
+			if pack.udpSocket == sock:
+				if pack.fname == 'temp':
+					recBuf , addr =  sock.recvfrom(1024)
+					pack.fname = recBuf.decode('utf-8')
+					#f = open(pack.fname, 'wb')
+					print(pack.fname)
+					
+				else:
+					recBuf , addr =  sock.recvfrom(1024)
+					if recBuf:
+						recBuf = recBuf
+						f = open(pack.fname, 'wb')
+	
